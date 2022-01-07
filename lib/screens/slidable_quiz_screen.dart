@@ -100,80 +100,82 @@ class _SlidableQuizScreenState extends State<SlidableQuizScreen> {
   }
 
   Widget _quizQuestion(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 60),
-      child: Align(
-        alignment: Alignment.topCenter,
-        child: Column(
-          children: [
-            Text(
-              quiz.name,
-              style: const TextStyle(fontSize: 22),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Text(
-              (_currentQuestionIndex + 1).toString() + "/" + quiz.questions!.length.toString(),
-              style: const TextStyle(fontSize: 16),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Icon(
-              FontAwesomeIcons.questionCircle,
-              size: 46,
-              color: Color(0xFFB8BFE4),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Text(
-                quiz.questions![_currentQuestionIndex].question,
-                style: const TextStyle(
-                  fontSize: 22,
-                ),
-                textAlign: TextAlign.center,
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 60),
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: Column(
+            children: [
+              Text(
+                quiz.name,
+                style: const TextStyle(fontSize: 22),
               ),
-            ),
-            const Spacer(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Text(
-                quiz.questions![_currentQuestionIndex].answers[_sliderValue.toInt()].answer,
-                style: const TextStyle(
-                  fontSize: 22,
+              const SizedBox(
+                height: 15,
+              ),
+              Text(
+                (_currentQuestionIndex + 1).toString() + "/" + quiz.questions!.length.toString(),
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Icon(
+                FontAwesomeIcons.questionCircle,
+                size: 46,
+                color: Color(0xFFB8BFE4),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  quiz.questions![_currentQuestionIndex].question,
+                  style: const TextStyle(
+                    fontSize: 22,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            SliderTheme(
-              data: const SliderThemeData(
-                trackHeight: 14,
-                activeTickMarkColor: Colors.transparent,
-                thumbShape: RoundSliderThumbShape(enabledThumbRadius: 20)
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  quiz.questions![_currentQuestionIndex].answers[_sliderValue.toInt()].answer,
+                  style: const TextStyle(
+                    fontSize: 22,
+                  ),
+                ),
               ),
-              child: Slider(
-                onChanged: (value){
-                  setState(() {
-                    _sliderValue = value;
-                  });
-                },
-                value: _sliderValue,
-                divisions: 9,
-                min: 0,
-                max: 9,
+              const SizedBox(
+                height: 15,
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            _currentQuestionIndex + 1 >= quiz.questions!.length ?  _finishButton() : _nextButton()
-          ],
+              SliderTheme(
+                data: const SliderThemeData(
+                  trackHeight: 14,
+                  activeTickMarkColor: Colors.transparent,
+                  thumbShape: RoundSliderThumbShape(enabledThumbRadius: 20)
+                ),
+                child: Slider(
+                  onChanged: (value){
+                    setState(() {
+                      _sliderValue = value;
+                    });
+                  },
+                  value: _sliderValue,
+                  divisions: 9,
+                  min: 0,
+                  max: 9,
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              _currentQuestionIndex + 1 >= quiz.questions!.length ?  _finishButton() : _nextButton()
+            ],
+          ),
         ),
       ),
     );

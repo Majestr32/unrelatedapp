@@ -61,7 +61,9 @@ class _QuizDetailsState extends State<QuizDetails> {
                   ),
                 ),
                 Spacer(),
-                ElevatedButton(onPressed: (){}, child: Text("Start Quiz", style: TextStyle(fontSize: 17, fontWeight: FontWeight.normal),), style: ElevatedButton.styleFrom(primary: Color(0xff1954DD), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0) ), minimumSize: Size(190,45))),
+                ElevatedButton(onPressed: (){
+                  Navigator.of(context).pushNamed("/slidable_quiz");
+                }, child: Text("Start Quiz", style: TextStyle(fontSize: 17, fontWeight: FontWeight.normal),), style: ElevatedButton.styleFrom(primary: Color(0xff1954DD), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0) ), minimumSize: Size(190,45))),
                 SizedBox(height: 50,),
 
 
