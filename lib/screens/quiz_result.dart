@@ -91,7 +91,9 @@ class _QuizResultScreenState extends State<QuizResultScreen> {
 
   Widget _buttonWidget(){
     return Container(
-      child: ElevatedButton(onPressed: (){}, child: Text("Okay", style: TextStyle(fontSize: 25, fontWeight: FontWeight.normal),), style: ElevatedButton.styleFrom(primary: Color(0xFFFBBF48), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0) ), minimumSize: Size(260,50))),
+      child: ElevatedButton(onPressed: (){
+        Navigator.of(context).pushNamed('/');
+      }, child: Text("Okay", style: TextStyle(fontSize: 25, fontWeight: FontWeight.normal),), style: ElevatedButton.styleFrom(primary: Color(0xFFFBBF48), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0) ), minimumSize: Size(260,50))),
     );
   }
 }

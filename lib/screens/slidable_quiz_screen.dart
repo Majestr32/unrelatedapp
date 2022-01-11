@@ -210,7 +210,9 @@ class _SlidableQuizScreenState extends State<SlidableQuizScreen> {
     return ElevatedButton(
       onPressed: () {
         if(_currentQuestionIndex + 1 >= quiz.questions!.length) {
+          Navigator.of(context).pushNamed('/quiz_result');
           return;
+
         }
 
         setState(() {

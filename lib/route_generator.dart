@@ -5,6 +5,7 @@ import 'package:unrelatedapp/screens/home.dart';
 import 'package:unrelatedapp/screens/profile.dart';
 import 'package:unrelatedapp/screens/quiz_details.dart';
 import 'package:unrelatedapp/screens/slidable_quiz_screen.dart';
+import 'package:unrelatedapp/screens/quiz_result.dart';
 
 import 'models/quiz.dart';
 
@@ -28,6 +29,8 @@ class RouteGenerator {
         }
       case '/slidable_quiz':
         return MaterialPageRoute(builder: (_) => SlidableQuizScreen());
+      case '/quiz_result':
+        return MaterialPageRoute(builder: (_) => QuizResultScreen());
       default:
         return _errorRoute();
     }
