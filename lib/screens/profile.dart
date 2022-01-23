@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import "package:flutter_feather_icons/flutter_feather_icons.dart";
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -16,8 +17,54 @@ class _ProfilePageState extends State<ProfilePage> {
             _firstWidget(),
             SizedBox(height: 20,),
             _secondWidget(),
-            Spacer(),
-            _thirdWidget(),
+            SizedBox(height: 15,),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    _bioWidget(),
+                    SizedBox(height: 25,),
+                    Align(child: Text("Traits", style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),), alignment: Alignment(-0.8,0),),
+                    SizedBox(height: 30,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        _traitsWidget(FontAwesomeIcons.heart,Color(0xff9F0000), Color(0xff5772FF), 'Emotions', 150),
+                        SizedBox(width: 10,),
+                        _traitsWidget(FontAwesomeIcons.crown,Color(0xffE79900), Color(0xffFFC044), 'Leader',200),
+                        SizedBox(width: 10,),
+                        _traitsWidget(FeatherIcons.messageCircle,Color(0xff0B29C5), Color(0xff5772FF), 'Social',169),
+                        SizedBox(width: 10,),
+                        _traitsWidget(FontAwesomeIcons.paintBrush,Color(0xff127AA1), Color(0xffFFC044), 'Creative',200),
+                        SizedBox(width: 10,),
+                        _traitsWidget(FontAwesomeIcons.bookOpen,Color(0xffF2BD56), Color(0xff5772FF), 'Open',179),
+                      ],
+                    ),
+                    SizedBox(height: 30,),
+                    Align(child: Text("Social", style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),), alignment: Alignment(-0.8,0),),
+                    SizedBox(height: 10,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _socialWidget(FontAwesomeIcons.telegram, Color(0xff353E6B), 50),
+                        SizedBox(width: 5,),
+                        _socialWidget(FontAwesomeIcons.facebookSquare, Color(0xff353E6B), 50),
+                        SizedBox(width: 5,),
+                        _socialWidget(FontAwesomeIcons.instagram, Color(0xff353E6B), 50),
+                        SizedBox(width: 5,),
+                        _socialWidget(FontAwesomeIcons.viber, Color(0xff353E6B), 50),
+                      ],
+                    ),
+
+                    SizedBox(height: 30,),
+                    _thirdWidget(),
+                  ],
+                ),
+              ),
+            ),
+            //Spacer(),
+
 
 
           ],
@@ -74,13 +121,49 @@ class _ProfilePageState extends State<ProfilePage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("Quizzes ended", style: TextStyle(fontSize: 19),),
-          Text("Followers", style: TextStyle(fontSize: 19),),
-          Text("Following", style: TextStyle(fontSize: 19),)
+          //Text("Quizzes ended", style: TextStyle(fontSize: 19),),
+          //Text("Followers", style: TextStyle(fontSize: 19),),
+          //ext("Following", style: TextStyle(fontSize: 19),)
         ],
 
 
       ),
+    );
+  }
+
+  Widget _bioWidget() {
+    return Column(
+      children: [
+        Align(child: Text("Bio", style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600 ),), alignment: Alignment(-0.8,0),),
+        Align(child: Text("Dan Brandon 23 y.o\nArtist from London Huvardson`s\nuniversity.\nPunk,jazz and music lover.",style: TextStyle(fontSize: 18),), alignment: Alignment(-0.5,0),)
+
+           ],
+          );
+  }
+
+  Widget _traitsWidget(IconData icon,Color iconColor, Color _color, String text, double containerHeight) {
+    return Column(
+
+           children: [
+             Container(
+               height: containerHeight,
+               width: 30,
+               color: _color,
+             ),
+             //Icon(icon),
+             Icon(
+               icon, color: iconColor,
+             ),
+             Text(text),
+           ],
+         );
+  }
+
+  Widget _socialWidget(IconData icon, Color iconColor, double iconSize) {
+    return Column(
+      children: [
+        Icon(icon, color: iconColor, size: iconSize,)
+      ],
     );
   }
 
