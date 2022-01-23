@@ -176,7 +176,7 @@ class _ProfilePageState extends State<ProfilePage> {
           onPressed: () {  },
           style: ElevatedButton.styleFrom(
               fixedSize: Size(200,50),
-              primary: Color(0xffB8BFE4),
+              primary: Color(0xff5772FF),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18)
               )
