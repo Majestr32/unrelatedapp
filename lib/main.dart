@@ -6,8 +6,10 @@ import 'package:unrelatedapp/models/quiz.dart';
 import 'package:unrelatedapp/route_generator.dart';
 import 'package:unrelatedapp/screens/history.dart';
 import 'package:unrelatedapp/screens/home.dart';
+import 'package:unrelatedapp/screens/login_screen.dart';
 import 'package:unrelatedapp/screens/profile.dart';
 import 'package:unrelatedapp/screens/quiz_result.dart';
+import 'package:unrelatedapp/screens/sign_up_screen.dart';
 import 'package:unrelatedapp/screens/slidable_quiz_screen.dart';
 
 void main() {
@@ -28,10 +30,10 @@ class MyApp extends StatelessWidget {
       home: Main(),
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
-
     );
   }
 }
+
 class Main extends StatefulWidget {
   const Main({Key? key}) : super(key: key);
 
@@ -43,36 +45,40 @@ class _MainState extends State<Main> {
   int _selectedIndex = 0;
 
   List<Widget> menuRoutes = [
-    const HomePage(),
+    const Login(),
     const HistoryPage(),
     const ProfilePage()
   ];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: menuRoutes[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        unselectedFontSize: 0,
-        selectedFontSize: 0,
-        onTap: (index) {
-          if(index == _selectedIndex) return;
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(FeatherIcons.home), label: "Home"),
-          BottomNavigationBarItem(
-              icon: Icon(FeatherIcons.list), label: "History"),
-          BottomNavigationBarItem(
-              icon: Icon(FeatherIcons.user), label: "Profile")]
-
-    )
+      // bottomNavigationBar: BottomNavigationBar(
+      //     currentIndex: _selectedIndex,
+      //     showSelectedLabels: false,
+      //     showUnselectedLabels: false,
+      //     unselectedFontSize: 0,
+      //     selectedFontSize: 0,
+      //     onTap: (index) {
+      //       if (index == _selectedIndex) return;
+      //       setState(() {
+      //         _selectedIndex = index;
+      //       });
+      // },
+      // items: const [
+      //   BottomNavigationBarItem(
+      //       icon: Icon(FeatherIcons.home), label: "Home"),
+      //   BottomNavigationBarItem(
+      //       icon: Icon(FeatherIcons.list), label: "History"),
+      //   BottomNavigationBarItem(
+      //       icon: Icon(FeatherIcons.user), label: "Profile")
+      // ]));
     );
- }
+  }
 }

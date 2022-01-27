@@ -15,9 +15,7 @@ class _ProfilePageState extends State<ProfilePage> {
         body: Column(
           children: [
             _firstWidget(),
-            SizedBox(height: 20,),
-            _secondWidget(),
-            SizedBox(height: 15,),
+
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -215,21 +213,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _secondWidget() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          //Text("Quizzes ended", style: TextStyle(fontSize: 19),),
-          //Text("Followers", style: TextStyle(fontSize: 19),),
-          //ext("Following", style: TextStyle(fontSize: 19),)
-        ],
 
-
-      ),
-    );
-  }
 
   Widget _bioWidget() {
     return Column(
