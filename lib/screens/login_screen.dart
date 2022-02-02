@@ -129,31 +129,78 @@ class _LoginState extends State<Login> {
   }
 
   Widget _social_login() {
-    return Container(
-      child: Column(
-        children: [
-          Text(
-            "Login with:",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          "Or",
+          style: TextStyle(
+            fontSize: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                FontAwesomeIcons.facebook,
-                size: 50,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Icon(
-                FontAwesomeIcons.google,
-                size: 50,
-              ),
-            ],
+        ),
+        InkWell(
+          onTap: () {
+            print("Clicked");
+          },
+          child: Container(
+            width: 350,
+            height: 50,
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(30)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  FontAwesomeIcons.google,
+                  color: Colors.indigo,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Continue with google",
+                  style: TextStyle(color: Color(0xffF95708), fontSize: 20),
+                ),
+              ],
+            ),
           ),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        InkWell(
+          onTap: () {
+            print("Clicked");
+          },
+          child: Container(
+            width: 350,
+            height: 50,
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(30)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  FontAwesomeIcons.facebook,
+                  color: Colors.indigo,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Continue with facebook",
+                  style: TextStyle(color: Color(0xffF95708), fontSize: 20),
+                ),
+              ],
+            ),
+          ),
+        )
+      ],
     );
   }
 

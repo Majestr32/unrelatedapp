@@ -45,7 +45,7 @@ class _MainState extends State<Main> {
   int _selectedIndex = 0;
 
   List<Widget> menuRoutes = [
-    const Login(),
+    const HomePage(),
     const HistoryPage(),
     const ProfilePage()
   ];
@@ -58,27 +58,26 @@ class _MainState extends State<Main> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: menuRoutes[_selectedIndex],
-      // bottomNavigationBar: BottomNavigationBar(
-      //     currentIndex: _selectedIndex,
-      //     showSelectedLabels: false,
-      //     showUnselectedLabels: false,
-      //     unselectedFontSize: 0,
-      //     selectedFontSize: 0,
-      //     onTap: (index) {
-      //       if (index == _selectedIndex) return;
-      //       setState(() {
-      //         _selectedIndex = index;
-      //       });
-      // },
-      // items: const [
-      //   BottomNavigationBarItem(
-      //       icon: Icon(FeatherIcons.home), label: "Home"),
-      //   BottomNavigationBarItem(
-      //       icon: Icon(FeatherIcons.list), label: "History"),
-      //   BottomNavigationBarItem(
-      //       icon: Icon(FeatherIcons.user), label: "Profile")
-      // ]));
-    );
+        body: menuRoutes[_selectedIndex],
+        bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            unselectedFontSize: 0,
+            selectedFontSize: 0,
+            onTap: (index) {
+              if (index == _selectedIndex) return;
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+            items: const [
+              BottomNavigationBarItem(
+                  icon: Icon(FeatherIcons.home), label: "Home"),
+              BottomNavigationBarItem(
+                  icon: Icon(FeatherIcons.list), label: "History"),
+              BottomNavigationBarItem(
+                  icon: Icon(FeatherIcons.user), label: "Profile")
+            ]));
   }
 }

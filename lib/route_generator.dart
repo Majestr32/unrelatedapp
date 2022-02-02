@@ -16,8 +16,12 @@ class RouteGenerator {
     final args = settings.arguments;
 
     switch (settings.name) {
-      case '/':
+      case '/sing_up':
+        return MaterialPageRoute(builder: (_) => SignUp());
+      case '/login':
         return MaterialPageRoute(builder: (_) => Login());
+      case '/':
+        return MaterialPageRoute(builder: (_) => HomePage());
       case '/history':
         return MaterialPageRoute(builder: (_) => HistoryPage());
       case '/profile':
