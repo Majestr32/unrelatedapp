@@ -9,6 +9,7 @@ import 'package:unrelatedapp/screens/slidable_quiz_screen.dart';
 import 'package:unrelatedapp/screens/quiz_result.dart';
 import 'package:unrelatedapp/screens/login_screen.dart';
 
+import 'main.dart';
 import 'models/quiz.dart';
 
 class RouteGenerator {
@@ -16,16 +17,12 @@ class RouteGenerator {
     final args = settings.arguments;
 
     switch (settings.name) {
-      case '/sing_up':
+      case '/sign_up':
         return MaterialPageRoute(builder: (_) => SignUp());
       case '/login':
         return MaterialPageRoute(builder: (_) => Login());
       case '/':
-        return MaterialPageRoute(builder: (_) => HomePage());
-      case '/history':
-        return MaterialPageRoute(builder: (_) => HistoryPage());
-      case '/profile':
-        return MaterialPageRoute(builder: (_) => ProfilePage());
+        return MaterialPageRoute(builder: (_) => Main());
       case '/quiz_details':
         if (args is Quiz) {
           return MaterialPageRoute(builder: (_) => QuizDetails(quiz: args));

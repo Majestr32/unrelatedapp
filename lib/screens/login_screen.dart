@@ -233,7 +233,7 @@ class _LoginState extends State<Login> {
         Text("Don't have an account? "),
         InkWell(
           onTap: () {
-            print("Clinked");
+            Navigator.of(context).pushNamed('/sign_up');
           },
           child: Text(
             "Register",

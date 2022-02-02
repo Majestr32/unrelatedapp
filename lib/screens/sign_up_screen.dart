@@ -118,7 +118,7 @@ class _SignUp extends State<SignUp> {
         Text("Already have an account? "),
         InkWell(
           onTap: () {
-            print("Clicked");
+            Navigator.of(context).pop();
           },
           child: Text(
             "Login",
